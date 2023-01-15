@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <meta name="color-scheme" content="light only" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Do Smart</title>
+  </head>
+
+  <body>
+    <!--nav bar & logo-->
+    <div class="nav">
+      <h2 onclick="refershpage()">Do <span>smart</span></h2>
+      <ul>
+        <li onclick="refershpage()">Home</li>
+        <li onclick="refershpage()">List</li>
+        <li onclick="getTheAbout()">About</li>
+      </ul>
+      <img src="./images/menu.svg" alt="" class="menu" onclick="getMenu()" />
+    </div>
+    <!--dropdown-->
+    <div class="doropdown" style="display: none">
+      <img src="./images/exit.svg" alt="" onclick="exitMenu()" />
+      <ul>
+        <li onclick="refershpage() ,exitMenu() ">Home</li>
+        <li onclick="refershpage() ,exitMenu()">List</li>
+        <li onclick="getTheAbout() ,exitMenu()">About</li>
+      </ul>
+    </div>
+
+    <!--the bord-->
+    <div class="bord">
+      <div class="fades">
+        <div class="img-holder">
+          <img src="./images/main.png" id="mainimg" alt="" />
+        </div>
+        <p class="main-p">
+          Get your <br />
+          tasks done <br />
+          in a smart way.
+        </p>
+        <button class="try-btn cta" id="try-now" onclick="letstry()">
+          Try now
+        </button>
+      </div>
+    </div>
+
+    <!--footer-->
+    <div class="footer">
+      <h5>
+        Developed and Designed by
+        <a href="https://www.facebook.com/adham.magdy.37266136">Adham Magdy</a>
+      </h5>
+    </div>
+    <!--create list-->
+    <div class="creat-list" id="creatlist" style="display: none">
+      <h3 class="tt">create your smart list :</h3>
+      <h2 id="listNameh" style="display: none">d</h2>
+      <div class="listname">
+        <label for="creatList">List Name: </label>
+        <input
+          type="text"
+          autocomplete="off"
+          id="createList"
+          required
+          minlength="1"
+          maxlength="25"
+        />
+      </div>
+      <div class="buttons">
+        <button class="cancel" onclick="refershpage()">Cancel</button>
+        <button class="creat cta" id="create" onclick="geListName()">
+          create
+        </button>
+      </div>
+    </div>
+
+    <!--my list-->
+    <div class="mylist" style="display: none">
+      <div class="listnametag">
+        <img src="./images/list.svg" alt="" />
+        <h5 class="listhere"></h5>
+      </div>
+      <div class="adding">
+        <div class="thelist">
+          <div class="line-vr"></div>
+          <h3>Empty</h3>
+        </div>
+        <div class="add-btn">
+          <img
+            src="./images/Add.svg"
+            alt=""
+            class="additem effect"
+            onclick="addtoexist()"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!--add items-->
+    <div class="addtolist" style="display: none">
+      <div class="listnametag">
+        <img src="./images/list.svg" alt="" />
+        <h5 class="listhere"></h5>
+      </div>
+      <div class="theitems">
+        <!--<div> class="ittt">
+          <!--<img src="./images/uncheck.svg" alt="" class="checkbox">
+        <h4 class"item"></h4> </div>-->
+      </div>
+      <div class="inputitem">
+        <input
+          type="text"
+          class="iteminput"
+          id="item-input"
+          autocomplete="off"
+          id="createList"
+          required
+          minlength="1"
+          maxlength="70"
+        />
+        <button class="addtolist" onclick="addItem()">Add</button>
+      </div>
+      <div class="itembuttons">
+        <button class="cancel" onclick="refershpage()">Cancel</button>
+        <button class="cta" id="AddItem" onclick="saveData()">Done</button>
+      </div>
+    </div>
+
+    <!--main items-->
+    <div class="mainList adding" style="display: none">
+      <div class="listnametag">
+        <img src="./images/list.svg" alt="" />
+        <h5 class="listhere"></h5>
+      </div>
+      <div class="container">
+        <div class="line-vr"></div>
+        <div class="theitems">
+          <!--<div> class="ittt">
+            <!--<img src="./images/uncheck.svg" alt="" class="checkbox">
+          <h4 class"item"></h4> </div>-->
+        </div>
+      </div>
+
+      <div class="mainlist-btn">
+        <img
+          src="./images/delete.svg"
+          class="effect"
+          alt=""
+          onclick="deleteItems()"
+        />
+        <img
+          src="./images/Add.svg"
+          class="effect"
+          alt=""
+          onclick="addtoexist()"
+        />
+      </div>
+    </div>
+
+    <!--for delete-->
+    <div class="deleteclass" style="display: none">
+      <div class="nametag-delete">
+        <div class="listnametag">
+          <img src="./images/list.svg" alt="" />
+          <h5 class="listhere"></h5>
+        </div>
+        <div class="divimgdelete">
+          <img
+            src="./images/delete.svg"
+            alt=""
+            class="maxdel effect"
+            onclick="deleteitall()"
+          />
+        </div>
+      </div>
+
+      <div class="theitems">
+        <!--<div> class="ittt">
+          <!--<img src="./images/uncheck.svg" alt="" class="checkbox">
+        <h4 class"item"></h4> </div>-->
+      </div>
+      <div class="itembuttons">
+        <button class="cancel" onclick="refershpage()">Cancel</button>
+        <button class="cta" id="AddItem" onclick="saveDel()">Done</button>
+      </div>
+    </div>
+
+    <!--the about section-->
+    <div class="aboutsec0" style="display: none">
+      <div class="aboutsec">
+        <h3 class="hh">About</h3>
+        <hr />
+        <h2>Do <span>smart</span></h2>
+        <p>is A to-do list App to track your Tasks in a Smart Modern Way!</p>
+      </div>
+    </div>
+  </body>
+
+  <script src="./app.js"></script>
+</html>
